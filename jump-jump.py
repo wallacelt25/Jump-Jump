@@ -124,7 +124,7 @@ def draw_panel():
 	draw_text('SCORE: ' + str(score), font_small, WHITE, 0, 0)
 
 
-#function for drawing the background
+#function for drawing the background (get continuous background)
 def draw_bg(bg_scroll):
 	screen.blit(bg_image, (0, 0 + bg_scroll))
 	screen.blit(bg_image, (0, -600 + bg_scroll))
@@ -274,7 +274,7 @@ while run:
 		if game_over == False:
 			scroll = jumpy.move()
 
-			#draw background
+			#draw background (caps the players from passing set line)
 			bg_scroll += scroll
 			if bg_scroll >= 600:
 				bg_scroll = 0
@@ -346,9 +346,7 @@ while run:
 		else:
 			if fade_counter < SCREEN_WIDTH:
 				fade_counter += 5
-				for y in range(0, 6, 2):
-					pygame.draw.rect(screen, BLACK, (0, y * 100, fade_counter, 100))
-					pygame.draw.rect(screen, BLACK, (SCREEN_WIDTH - fade_counter, (y + 1) * 100, SCREEN_WIDTH, 100))
+				pygame.draw.rect(screen, BLACK, (0, y * 100, fade_counter, 100))
 			else:
 				draw_text('GAME OVER!', font_big, WHITE, 130, 200)
 				draw_text('SCORE: ' + str(score), font_big, WHITE, 130, 250)
