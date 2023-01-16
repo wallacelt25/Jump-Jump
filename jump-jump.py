@@ -168,7 +168,7 @@ class Player():
 
 		#check collision with platforms
 		for platform in platform_group:
-			#collision in the y direction
+			#collision in the y direction with colliderect (add collision of the invisible rectangle)
 			if platform.rect.colliderect(self.rect.x, self.rect.y + dy, self.width, self.height):
 				#check if above the platform
 				if self.rect.bottom < platform.rect.centery:
@@ -196,7 +196,7 @@ class Player():
 	def draw(self):
 		screen.blit(pygame.transform.flip(self.image, self.flip, False), (self.rect.x - 12, self.rect.y - 5))
 
-#platform class
+#platform class (base class for visible game objects)
 class Platform(pygame.sprite.Sprite):
 	def __init__(self, x, y, width, moving):
 		pygame.sprite.Sprite.__init__(self)
@@ -237,7 +237,7 @@ exit_button = button.Button(SCREEN_WIDTH // 2 - 110, SCREEN_HEIGHT // 2 + 50, ex
 #sound button
 sound_btn = button.Button2(on, (24, 24), SCREEN_WIDTH//2 - 15, SCREEN_HEIGHT//2 + 200)
 
-#create sprite groups
+#create sprite groups (acts lika a list)
 platform_group = pygame.sprite.Group()
 enemy_group = pygame.sprite.Group()
 distraction_group = pygame.sprite.Group()
@@ -298,7 +298,7 @@ while run:
 
 			#generate distractions 
 			if len(distraction_group) == 0:
-				distraction = Distraction(SCREEN_WIDTH, 100, powerup_sheet, 10)
+				distraction = Distraction(SCREEN_WIDTH, 100, distraction_sheet, 10)
 				distraction_group.add(distraction)
 
 			#update distractions
