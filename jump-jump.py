@@ -180,7 +180,7 @@ class Player():
 
 		#check if the player has bounced to the top of the screen
 		if self.rect.top <= SCROLL_THRESH:
-			#if player is jumping
+			#if player is jumping (sets the variable so that the scroll doesnt come back down)
 			if self.vel_y < 0:
 				scroll = -dy
 
