@@ -75,15 +75,15 @@ jumpy_image = pygame.image.load('assets/jump.png').convert_alpha()
 bg_image = pygame.image.load('assets/bg.png').convert_alpha()
 platform_image = pygame.image.load('assets/wood.png').convert_alpha()
 
-powerup_image = pygame.image.load('distraction.png').convert_alpha()
+distraction_image = pygame.image.load('distraction.png').convert_alpha()
 
 #bird spritesheet
 bird_sheet_img = pygame.image.load('assets/bird.png').convert_alpha()
 bird_sheet = SpriteSheet(bird_sheet_img)
 
 #distraction spritesheet
-powerup_sheet_img = pygame.image.load('distraction.png').convert_alpha()
-powerup_sheet = SpriteSheet(powerup_sheet_img)
+distraction_sheet_img = pygame.image.load('distraction.png').convert_alpha()
+distraction_sheet = SpriteSheet(distraction_sheet_img)
 
 #function for pause
 def pause():
